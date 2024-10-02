@@ -1,4 +1,3 @@
-
 #!/data/data/com.termux/files/usr/bin/bash
 
 while getopts ":d:" option; do
@@ -6,33 +5,34 @@ while getopts ":d:" option; do
     d)
       folder=$OPTARG
       if [ -d "$folder" ]; then
-        file_list=("$folder"/*.{mp3,mp4})
+        file_list=("$folder"/*.mp3 "$folder"/*.mp4)
+        file_list=("${file_list[@]/*\*/}")  # Filter if no files found
         if [ ${#file_list[@]} -gt 0 ]; then
           random_file=${file_list[RANDOM % ${#file_list[@]}]}
           mpv "$random_file"
         else
-          echo "Tidak ada file musik atau video dalam folder: $folder"
+          echo "No music or video files found in folder: $folder"
         fi
       else
-        echo "Folder tidak ditemukan: $folder"
+        echo "Folder not found: $folder"
       fi
       ;;
     \?)
-      echo "Penggunaan: putar -d NAMA_FOLDER"
+      echo "Usage: play -d FOLDER_NAME"
       exit 1
       ;;
   esac
 done
 
-
+# If no options are provided, use the current folder
 if [ $OPTIND -eq 1 ]; then
   current_folder=$(pwd)
-  file_list=("$current_folder"/*.{mp3,mp4})
+  file_list=("$current_folder"/*.mp3 "$current_folder"/*.mp4)
+  file_list=("${file_list[@]/*\*/}")  # Filter if no files found
   if [ ${#file_list[@]} -gt 0 ]; then
     random_file=${file_list[RANDOM % ${#file_list[@]}]}
     mpv "$random_file"
   else
-    echo "Tidak ada file musik atau video dalam folder: $current_folder"
+    echo "No music or video files found in folder: $current_folder"
   fi
 fi
-
