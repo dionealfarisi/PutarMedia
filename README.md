@@ -5,7 +5,7 @@ This bash script allows you to play a random `.mp3` or `.mp4` file from a specif
 ## Usage
 
 ```bash
-play -d FOLDER_NAME
+putar -d FOLDER_NAME
 ```
 
 - `-d FOLDER_NAME`: Play a random music or video file from the specified folder.
