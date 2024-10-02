@@ -8,8 +8,9 @@ while getopts ":d:" option; do
         file_list=("$folder"/*.mp3 "$folder"/*.mp4)
         file_list=("${file_list[@]/*\*/}")  # Filter if no files found
         if [ ${#file_list[@]} -gt 0 ]; then
-          random_file=${file_list[RANDOM % ${#file_list[@]}]}
-          mpv "$random_file"
+          for file in "${file_list[@]}"; do
+            mpv "$file"
+          done
         else
           echo "No music or video files found in folder: $folder"
         fi
@@ -30,8 +31,9 @@ if [ $OPTIND -eq 1 ]; then
   file_list=("$current_folder"/*.mp3 "$current_folder"/*.mp4)
   file_list=("${file_list[@]/*\*/}")  # Filter if no files found
   if [ ${#file_list[@]} -gt 0 ]; then
-    random_file=${file_list[RANDOM % ${#file_list[@]}]}
-    mpv "$random_file"
+    for file in "${file_list[@]}"; do
+      mpv "$file"
+    done
   else
     echo "No music or video files found in folder: $current_folder"
   fi
