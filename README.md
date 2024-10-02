@@ -1,4 +1,4 @@
-#  Music/Video Player in Termux
+#  Music Player in Termux
 
 This bash script allows you to play a random `.mp3` or `.mp4` file from a specified folder using the `mpv` media player. If no folder is specified, it defaults to the current working directory.
 
@@ -6,10 +6,11 @@ This bash script allows you to play a random `.mp3` or `.mp4` file from a specif
 
 ```bash
 putar -d FOLDER_NAME
+
 ```
 
-- `-d FOLDER_NAME`: Play a random music or video file from the specified folder.
-- If no folder is provided, the script will play a random file from the current folder.
+- `-d FOLDER_NAME`: Play a music file from the specified folder.
+- If no folder is provided, the script will play MP3 file from the current folder.
 
 ## Requirements
 
@@ -18,6 +19,11 @@ putar -d FOLDER_NAME
     ```bash
     pkg install mpv
     ```
+#Install
+```bash
+chmod +x install.sh
+bash install.sh
+```
 
 ## Examples
 
