@@ -18,7 +18,7 @@ while getopts ":d:" option; do
       fi
       ;;
     \?)
-      echo "Usage: play -d FOLDER_NAME"
+      echo "Usage: putar -d FOLDER_NAME"
       exit 1
       ;;
   esac
