@@ -1,4 +1,4 @@
-# Random Music/Video Player Script
+#  Music/Video Player in Termux
 
 This bash script allows you to play a random `.mp3` or `.mp4` file from a specified folder using the `mpv` media player. If no folder is specified, it defaults to the current working directory.
 
